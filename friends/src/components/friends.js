@@ -1,11 +1,19 @@
 import axios from 'axios'
-import React from 'react'
+import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
-import { axiosWithAuth } from '../utils/axioswithAuth'
+import { Friend } from './friend'
+// import { axiosWithAuth } from '../utils/axioswithAuth'
 // import axios from 'axios';
 
 
 export const Friends = () => {
+    const [friendsArray, setFriendsArray] = useState([])
+
+    const friendData = friendsArray.map(function (friend) {
+        console.log(friend)
+        return friend
+    })
+    console.log(friendData)
     const token = localStorage.getItem('token')
 
     const deleteToken = () => {
@@ -18,7 +26,8 @@ export const Friends = () => {
             headers: { authorization: token }
         })
             .then(res => {
-                console.log(res)
+                console.log(res.data)
+                setFriendsArray(res.data)
             })
             .catch(err => {
                 console.log(err)
@@ -33,6 +42,14 @@ export const Friends = () => {
             </div>
             <div className="friends-container">
                 <button onClick={getData}>Fetch Your Friends</button>
+            </div>
+            <div>
+                {friendsArray.map(friend => (
+                    <Friend
+                        key={friend.id}
+                        friendArrayPass={friend}
+                    />
+                ))}
             </div>
         </div>
     )
