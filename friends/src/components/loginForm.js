@@ -26,6 +26,7 @@ export const LoginForm = (props) => {
                 console.log(res.data.payload)
                 localStorage.setItem('token', res.data.payload)
                 props.history.push('/protected')
+                window.location.href = '/friends'
             })
             .catch(err => {
                 console.log(err)
