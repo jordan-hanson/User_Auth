@@ -3,6 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { LoginForm } from './components/loginForm'
 import { Friends } from './components/friends'
 import { PrivateRoute } from './components/privateRoute'
+import { FriendForm } from './components/newFriendForm'
 
 function App() {
   return (
@@ -11,7 +12,7 @@ function App() {
         Login Form
           <Route path="/login" component={LoginForm} />
           Protected Route view Friends after Sign In
-          <Route path="/newfriend" />
+          <PrivateRoute path="/newfriend" component={FriendForm} />
           Protected Friend Form that directs to sign in if no token in storage
           <PrivateRoute path="/friends" component={Friends} />
           Redirect to Home

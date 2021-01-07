@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+
 import { axiosWithAuth } from '../utils/axioswithAuth'
 
 export const LoginForm = (props) => {
@@ -26,7 +27,7 @@ export const LoginForm = (props) => {
                 console.log(res.data.payload)
                 localStorage.setItem('token', res.data.payload)
                 props.history.push('/protected')
-                window.location.href = '/friends'
+                // window.location.href = '/friends'
             })
             .catch(err => {
                 console.log(err)
