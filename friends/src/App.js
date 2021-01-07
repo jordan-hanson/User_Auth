@@ -1,6 +1,8 @@
 import './App.css';
 import { Route, Switch } from 'react-router-dom'
 import { LoginForm } from './components/loginForm'
+import { Friends } from './components/friends'
+import { PrivateRoute } from './components/privateRoute'
 
 function App() {
   return (
@@ -11,7 +13,7 @@ function App() {
           Protected Route view Friends after Sign In
           <Route path="/newfriend" />
           Protected Friend Form that directs to sign in if no token in storage
-          <Route path="/friends" />
+          <PrivateRoute path="/friends" component={Friends} />
           Redirect to Home
           <Route path="/" component={LoginForm} />
       </Switch>
