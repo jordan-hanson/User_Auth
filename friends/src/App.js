@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom'
 import { LoginForm } from './components/loginForm'
 import { Friends } from './components/friends'
 import { PrivateRoute } from './components/privateRoute'
-import { FriendForm } from './components/newFriendForm'
+import { FriendForm } from './components/friendForm'
 
 function App() {
   return (
