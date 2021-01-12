@@ -18,9 +18,9 @@ export const FriendForm = () => {
         setFriendValues(newFriend)
     }
     const onSubmit = () => {
-        e.preventDefault()
+        e.preventDefault();
         console.log('about to save the new friend')
-        axios.post('http://localhost:5000/api/friends')
+        axios.post('http://localhost:5000/api/friends', friendValues)
             .then(res => {
                 console.log(res)
             })
